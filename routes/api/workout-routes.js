@@ -13,8 +13,23 @@ router.get("/", (req, res) => {
     })
 })
 
+router.post("/", (req, res) => {
+    Fitness.create(req.body)
+    .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.status(400).json(err);
+      });
+});
+
 router.put("/:id", (req, res) => {
-    Fitness.create({day: 1})
+    Fitness.updateOne({_id: req.params.id}, 
+        {
+            $push: {
+                exercises: req.body
+            }
+        })
       .then(dbWorkout => {
         res.json(dbWorkout);
       })
@@ -23,14 +38,14 @@ router.put("/:id", (req, res) => {
       });
   });
 
-// router.post("/", (req, res) => {
-//     Fitness.create(body)
-//       .then(dbWorkout => {
-//         res.json(dbWorkout);
-//       })
-//       .catch(err => {
-//         res.status(400).json(err);
-//       });
-//   });
+  router.get("/range", (req, res) => {
+    Fitness.find({}).sort({day: -1}).limit(7).sort({day: 1})
+    .then(dbWorkout => {
+        res.json(dbWorkout);
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    })
+})
 
 module.exports = router;
