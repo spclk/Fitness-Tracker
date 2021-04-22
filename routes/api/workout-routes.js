@@ -13,20 +13,20 @@ router.get("/", (req, res) => {
     })
 })
 
-// router.put("/api/workouts", (req, res) => {
-//     Fitness.create(body)
-//       .then(dbTransaction => {
-//         res.json(dbTransaction);
-//       })
-//       .catch(err => {
-//         res.status(400).json(err);
-//       });
-//   });
+router.put("/:id", (req, res) => {
+    Fitness.create({day: 1})
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.status(400).json(err);
+      });
+  });
 
-// router.post("/api/workouts", (req, res) => {
+// router.post("/", (req, res) => {
 //     Fitness.create(body)
-//       .then(dbTransaction => {
-//         res.json(dbTransaction);
+//       .then(dbWorkout => {
+//         res.json(dbWorkout);
 //       })
 //       .catch(err => {
 //         res.status(400).json(err);
