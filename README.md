@@ -29,7 +29,7 @@
   ## Installation 
   Access website at: https://serene-dusk-47892.herokuapp.com/
   ## Usage 
-  You can log multiple cardio or resitance exercises per day, as well as track them by diffe
+  User can log resitance exercises and track them by name, type, weight, sets, reps, and duration of exercise. Or a user can log cardio exerises and track them by name and distance traveled. 
   ## Questions? 
   https://github.com/spclk
 
